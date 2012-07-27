@@ -9,15 +9,15 @@
 
     Crosshair.name = 'Crosshair';
 
-    Crosshair.prototype.size = 3;
+    Crosshair.prototype.size = 4;
 
     Crosshair.prototype.bounds = 100;
 
     function Crosshair() {
-      Crosshair.__super__.constructor.call(this, new THREE.SphereGeometry(this.size, 4, 24), new THREE.MeshPhongMaterial({
-        color: 0xff0000
+      Crosshair.__super__.constructor.call(this, new THREE.PlaneGeometry(this.size, this.size), new THREE.MeshBasicMaterial({
+        color: 0xffffff
       }));
-      this.position.z = this.size / 2;
+      this.position.z = 0.1;
       this.scale.z = 0.001;
     }
 
@@ -37,6 +37,8 @@
         return this.position.y = -this.bounds;
       }
     };
+
+    Crosshair.prototype.update = function() {};
 
     return Crosshair;
 

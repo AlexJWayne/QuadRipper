@@ -1,13 +1,13 @@
 class window.Crosshair extends THREE.Mesh
-  size: 3
+  size: 4
   bounds: 100
 
   constructor: ->
     super(
-      new THREE.SphereGeometry @size, 4, 24
-      new THREE.MeshPhongMaterial color: 0xff0000
+      new THREE.PlaneGeometry @size, @size
+      new THREE.MeshBasicMaterial color: 0xffffff
     )
-    @position.z = @size/2
+    @position.z = 0.1
     @scale.z = 0.001
 
   updatePosition: (pos) ->
@@ -19,3 +19,5 @@ class window.Crosshair extends THREE.Mesh
 
     @position.y =  @bounds if @position.y >  @bounds
     @position.y = -@bounds if @position.y < -@bounds
+
+  update: ->

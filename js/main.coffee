@@ -38,7 +38,7 @@ jQuery ($) ->
   # put a camera in the scene
   init.camera = ->
     scene.camera = camera = new THREE.PerspectiveCamera 50, window.innerWidth / window.innerHeight, 1, 10000
-    camera.position.set 0, -75, 300
+    camera.position.set 0, -100, 300
     camera.lookAt new THREE.Vector3(0, 0, 0)
     scene.add camera
 
@@ -64,6 +64,9 @@ jQuery ($) ->
     # - it has to be at the begining of the function
     # - see details at http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
     requestAnimationFrame animate
+
+    # do the update
+    scene.stage.update()
 
     # do the render
     render()

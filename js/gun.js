@@ -9,11 +9,13 @@
 
     Gun.name = 'Gun';
 
-    Gun.prototype.size = 3;
+    Gun.prototype.size = 15;
 
     Gun.prototype.bounds = 100;
 
-    Gun.prototype.buffer = 12;
+    Gun.prototype.buffer = 12.5;
+
+    Gun.prototype.fireRate = 20;
 
     Gun.create = function() {
       return {
@@ -44,10 +46,10 @@
         this.position.x = -100 - this.buffer;
       }
       if (this.horizontal) {
-        this.scale.y = 5;
+        this.scale.x = 0.2;
       }
       if (this.vertical) {
-        this.scale.x = 5;
+        this.scale.y = 0.2;
       }
     }
 
@@ -73,6 +75,56 @@
         }
       }
     };
+
+    Gun.prototype.setActive = function(active) {
+      var _ref,
+        _this = this;
+      if (this.active === active) {
+        return;
+      }
+      this.active = active;
+      if (this.active) {
+        this.fire();
+        return this.firingInterval = accurateInterval(1 / this.fireRate * 1000, function() {
+          return _this.fire();
+        });
+      } else {
+        return (_ref = this.firingInterval) != null ? _ref.cancel() : void 0;
+      }
+    };
+
+    Gun.prototype.fire = function() {
+      var bulletStartPos, direction;
+      bulletStartPos = this.position.clone();
+      if (this.type === 'right') {
+        bulletStartPos.x = 110;
+      }
+      if (this.type === 'left') {
+        bulletStartPos.x = -110;
+      }
+      if (this.type === 'top') {
+        bulletStartPos.y = 110;
+      }
+      if (this.type === 'bottom') {
+        bulletStartPos.y = -110;
+      }
+      direction = new THREE.Vector3();
+      if (this.type === 'left') {
+        direction.x = 1;
+      }
+      if (this.type === 'right') {
+        direction.x = -1;
+      }
+      if (this.type === 'bottom') {
+        direction.y = 1;
+      }
+      if (this.type === 'top') {
+        direction.y = -1;
+      }
+      return scene.stage.bullets.push(new Bullet(bulletStartPos, direction));
+    };
+
+    Gun.prototype.update = function() {};
 
     return Gun;
 

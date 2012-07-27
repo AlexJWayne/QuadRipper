@@ -43,6 +43,7 @@ THREE.Camera::screenToWorld.makePlane = (axis) ->
 
 
 
+# Log a vector to the console
 THREE.Vector2::log = -> console.log "THREE.Vector2", @x, @y
 THREE.Vector3::log = -> console.log "THREE.Vector3", @x, @y, @z
 THREE.Vector4::log = -> console.log "THREE.Vector4", @x, @y, @z, @w

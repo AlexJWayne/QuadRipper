@@ -38,7 +38,7 @@
     init.camera = function() {
       var ambient, directionalLight;
       scene.camera = camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 10000);
-      camera.position.set(0, -75, 300);
+      camera.position.set(0, -100, 300);
       camera.lookAt(new THREE.Vector3(0, 0, 0));
       scene.add(camera);
       ambient = new THREE.AmbientLight(0xffffff, 0.25);
@@ -55,6 +55,7 @@
     };
     animate = function() {
       requestAnimationFrame(animate);
+      scene.stage.update();
       render();
       return stats.update();
     };
