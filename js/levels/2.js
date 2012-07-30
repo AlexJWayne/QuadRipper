@@ -34,7 +34,7 @@
       _results = [];
       for (i = _i = 0, _ref2 = 1 / rate; 0 <= time ? _i <= time : _i >= time; i = _i += _ref2) {
         _results.push(this.after(i, function() {
-          return _this.spawnEnemy(pos, vel);
+          return _this.spawnEnemy(Enemy.Blip, pos, vel);
         }));
       }
       return _results;
@@ -43,43 +43,43 @@
     Level2.prototype.start = function() {
       var _this = this;
       this.after(1, function() {
-        return _this.train(3, 5, 20);
+        return _this.train(2, 5, 20);
       });
       this.after(6, function() {
-        return _this.train(3, 5, 20);
+        return _this.train(2, 5, 20);
       });
       this.after(10, function() {
-        return _this.train(3, 4, 20);
+        return _this.train(2, 4, 20);
       });
       this.after(13, function() {
-        return _this.train(3, 3, 30);
+        return _this.train(2, 3, 30);
       });
       this.after(16, function() {
-        return _this.train(3, 3, 35);
+        return _this.train(2, 3, 35);
       });
       this.after(19, function() {
-        return _this.train(3, 3, 40);
+        return _this.train(2, 3, 40);
       });
       this.after(22, function() {
-        return _this.train(3, 3, 50);
+        return _this.train(2, 3, 50);
       });
       this.after(25, function() {
-        return _this.train(4, 2);
+        return _this.train(3, 2);
       });
       this.after(28, function() {
-        return _this.train(4, 2);
+        return _this.train(3, 2);
       });
       this.after(31, function() {
-        return _this.train(4, 2);
+        return _this.train(3, 2);
       });
       this.after(33, function() {
-        return _this.train(12, 1, 25);
+        return _this.train(6, 1, 25);
       });
       this.after(35, function() {
-        return _this.train(12, 1, 25);
+        return _this.train(6, 1, 25);
       });
       this.after(37, function() {
-        return _this.train(12, 1, 25);
+        return _this.train(6, 1, 25);
       });
       return this.after(38, function() {
         return _this.winnable = true;

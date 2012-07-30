@@ -10,7 +10,7 @@
     function Wall(orientation) {
       var horizontal, xy, _ref;
       horizontal = orientation === 'top' || orientation === 'bottom';
-      xy = [10, 220, 10];
+      xy = [10, 220, 15];
       if (horizontal) {
         _ref = [xy[1], xy[0]], xy[0] = _ref[0], xy[1] = _ref[1];
       }

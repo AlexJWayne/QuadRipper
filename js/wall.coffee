@@ -2,7 +2,7 @@ class window.Wall extends THREE.Mesh
   constructor: (orientation) ->
     horizontal = orientation in ['top', 'bottom']
 
-    xy = [10, 220, 10]
+    xy = [10, 220, 15]
     [xy[0], xy[1]] = [xy[1], xy[0]] if horizontal
 
     super(

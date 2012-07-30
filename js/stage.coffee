@@ -2,6 +2,8 @@ class window.Stage
   levels: (level for level in Level.levels when level)
 
   constructor: ->
+    scene.stage = this
+
     @bindEvents()
     @createLevelMesh()
 
@@ -29,7 +31,7 @@ class window.Stage
       new THREE.PlaneGeometry 200, 200
       new THREE.MeshPhongMaterial(color: 0xdddddd)
     )
-    floor.position.z = -2.5
+    floor.position.z = -5
     @mesh.add floor
 
     # walls

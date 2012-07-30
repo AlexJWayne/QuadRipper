@@ -7,13 +7,13 @@
 
     __extends(Gun, _super);
 
-    Gun.prototype.size = 20;
+    Gun.prototype.size = 25;
 
     Gun.prototype.bounds = 100;
 
-    Gun.prototype.buffer = 6;
+    Gun.prototype.buffer = 10;
 
-    Gun.prototype.fireRate = 20;
+    Gun.prototype.fireRate = 10;
 
     Gun.create = function() {
       return {

@@ -16,18 +16,32 @@
       var i, _i, _j, _k, _l,
         _this = this;
       for (i = _i = 3; _i <= 15; i = _i += 3) {
-        this.after(i, this.spawnEnemy);
+        this.after(i, (function() {
+          return _this.spawnEnemy(Enemy.Blip);
+        }));
       }
+      this.after(10, (function() {
+        return _this.spawnEnemy(Enemy.Butter);
+      }));
       for (i = _j = 16; _j <= 40; i = _j += 2) {
-        this.after(i, this.spawnEnemy);
+        this.after(i, (function() {
+          return _this.spawnEnemy(Enemy.Blip);
+        }));
       }
+      this.after(40, (function() {
+        return _this.spawnEnemy(Enemy.Butter);
+      }));
       for (i = _k = 41; _k <= 50; i = _k += 1) {
-        this.after(i, this.spawnEnemy);
+        this.after(i, (function() {
+          return _this.spawnEnemy(Enemy.Blip);
+        }));
       }
       for (i = _l = 51; _l <= 60; i = _l += 0.35) {
-        this.after(i, this.spawnEnemy);
+        this.after(i, (function() {
+          return _this.spawnEnemy(Enemy.Blip);
+        }));
       }
-      return this.after(60, function() {
+      return this.after(61, function() {
         return _this.winnable = true;
       });
     };

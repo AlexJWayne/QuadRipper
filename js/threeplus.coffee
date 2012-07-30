@@ -1,3 +1,6 @@
+# Tau is the whole circle, not just half ike Pi
+Math.TAU = Math.PI * 2
+
 # Convert from screen coordinates to world coordinates.
 # Assumes a full screen canvas.
 # `type` can be 'xy', 'xz' or 'yz' depending on which origin intersecting plane you want
@@ -51,3 +54,25 @@ THREE.Camera::screenToWorld.makePlane = (axis) ->
 THREE.Vector2::log = -> console.log "THREE.Vector2", @x, @y
 THREE.Vector3::log = -> console.log "THREE.Vector3", @x, @y, @z
 THREE.Vector4::log = -> console.log "THREE.Vector4", @x, @y, @z, @w
+
+# Simple vector rotation
+THREE.Vector3::rotateX = (rad) ->
+  @set(
+    @x
+    @y * Math.cos(rad) - @z * Math.sin(rad)
+    @y * Math.sin(rad) + @z * Math.cos(rad)
+  )
+
+THREE.Vector3::rotateY = (rad) ->
+  @set(
+    @z * Math.sin(rad) + @x * Math.cos(rad)
+    @y
+    @z * Math.cos(rad) - @x * Math.sin(rad)
+  )
+
+THREE.Vector3::rotateZ = (rad) ->
+  @set(
+    @x * Math.cos(rad) - @y * Math.sin(rad)
+    @x * Math.sin(rad) + @y * Math.cos(rad)
+    @z
+  )

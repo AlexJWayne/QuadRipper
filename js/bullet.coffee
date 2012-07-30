@@ -1,7 +1,7 @@
 class window.Bullet extends THREE.Mesh
   size: 1.5
   speed: 350
-  spread: 0.06
+  spread: 0.05
 
   constructor: (pos, direction)->
     super(
@@ -15,6 +15,18 @@ class window.Bullet extends THREE.Mesh
 
     spread = new THREE.Vector3 (Math.random()*2 - 1)*@spread, (Math.random()*2 - 1)*@spread
     @velocity = direction.normalize().addSelf(spread).multiplyScalar @speed
+    
+    angle = Math.atan2(direction.y, direction.x)
+    angle += Math.TAU while angle < 0
+    @direction =
+      if angle <= Math.TAU*1/8 or angle >= Math.TAU*7/8
+        'left'
+      else if Math.TAU*1/8 <= angle <= Math.TAU*3/8
+        'bottom'
+      else if Math.TAU*3/8 <= angle <= Math.TAU*5/8
+        'right'
+      else if Math.TAU*5/8 <= angle <= Math.TAU*7/8
+        'top'
 
     scaleDistortion = @velocity.clone().normalize().multiplyScalar 3
     scaleDistortion.x = Math.abs(scaleDistortion.x)

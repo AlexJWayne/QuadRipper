@@ -11,18 +11,15 @@
 
     Enemy.prototype.speed = 15;
 
+    Enemy.prototype.health = 1;
+
     function Enemy() {
-      Enemy.__super__.constructor.call(this, new THREE.CubeGeometry(this.size, this.size, this.size), new THREE.MeshPhongMaterial({
-        color: 0xff0000
-      }));
+      Enemy.__super__.constructor.apply(this, arguments);
       this.velocity = new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5).setLength(this.speed);
-      this.health = 3;
-      this.rotVel = new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).multiplyScalar(5);
     }
 
     Enemy.prototype.update = function() {
       this.position.addSelf(this.velocity.clone().multiplyScalar(scene.stage.delta));
-      this.rotation.addSelf(this.rotVel.clone().multiplyScalar(scene.stage.delta));
       if (this.showHit) {
         this.material.color = new THREE.Color(0xffffff);
         this.showHit = false;

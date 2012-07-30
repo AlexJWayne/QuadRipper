@@ -26,6 +26,7 @@
       this.onMouseMove = __bind(this.onMouseMove, this);
 
       var gun, type, _ref;
+      scene.stage = this;
       this.bindEvents();
       this.createLevelMesh();
       this.crosshair = new Crosshair;
@@ -49,7 +50,7 @@
       floor = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.MeshPhongMaterial({
         color: 0xdddddd
       }));
-      floor.position.z = -2.5;
+      floor.position.z = -5;
       this.mesh.add(floor);
       this.walls = [new Wall('top'), new Wall('right'), new Wall('bottom'), new Wall('left')];
       _ref = this.walls;
