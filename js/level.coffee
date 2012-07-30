@@ -1,4 +1,6 @@
 class window.Level
+  @levels = []
+
   constructor: ->
     @winnable = no
     @timeouts = []

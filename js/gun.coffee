@@ -1,7 +1,7 @@
 class window.Gun extends THREE.Mesh
-  size: 15
+  size: 20
   bounds: 100
-  buffer: 12.5
+  buffer: 6
   fireRate: 20
 
   @create: ->

@@ -1,0 +1,45 @@
+doctype 5
+html
+	head
+		title QuadRipper
+		meta( charset="utf-8" )
+		meta(
+			name="viewport"
+			content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
+		
+		script( src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" )
+		script( src="vendor/three.js/Three.js" )
+		script( src="vendor/three.js/Detector.js" )
+		script( src="vendor/three.js/Stats.js" )
+		script( src="vendor/threex/THREEx.WindowResize.js" )
+		
+		script( src="js/accurate_interval.js" )
+		script( src="js/threeplus.js" )
+		
+		script( src="js/level.js" )
+		script( src="js/levels/1.js" )
+		script( src="js/levels/2.js" )
+
+		script( src="js/main.js" )
+		script( src="js/stage.js" )
+		script( src="js/wall.js" )
+		script( src="js/crosshair.js" )
+		script( src="js/gun.js" )
+		script( src="js/bullet.js" )
+		script( src="js/enemy.js" )
+
+
+		link( href="css/main.css", rel="stylesheet" )
+	
+body
+	#container
+	
+	#info
+		.top
+			| Mouse to Aim
+			#health 100
+			| WASD to Fire
+
+
+	script
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>

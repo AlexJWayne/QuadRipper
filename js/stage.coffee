@@ -1,8 +1,5 @@
 class window.Stage
-  levels: [
-    Level1
-    Level2
-  ]
+  levels: (level for level in Level.levels when level)
 
   constructor: ->
     @bindEvents()
@@ -29,30 +26,20 @@ class window.Stage
     scene.add @mesh
     
     floor = new THREE.Mesh(
-      new THREE.PlaneGeometry 220, 220
+      new THREE.PlaneGeometry 200, 200
       new THREE.MeshPhongMaterial(color: 0xdddddd)
     )
-    floor.position.z = -3
+    floor.position.z = -2.5
     @mesh.add floor
 
     # walls
-    @walls =
-      for i in [0..3]
-        xy = [5, 225, 5]
-        [xy[0], xy[1]] = [xy[1], xy[0]] if i % 2 is 0
-
-        wall = new THREE.Mesh(
-          new THREE.CubeGeometry(xy...)
-          new THREE.MeshPhongMaterial(color: 0xaaaaaa)
-        )
-        wall.position.z = 2.5
-        wall.position.y =  110 if i is 0
-        wall.position.x =  110 if i is 1
-        wall.position.y = -110 if i is 2
-        wall.position.x = -110 if i is 3
-        @mesh.add wall
-
-        wall
+    @walls = [
+      new Wall 'top'
+      new Wall 'right'
+      new Wall 'bottom'
+      new Wall 'left'
+    ]
+    @mesh.add wall for wall in @walls
 
   bindEvents: ->
     $(document.body)
@@ -127,8 +114,6 @@ class window.Stage
         @completed = yes
         setTimeout (=> @nextLevel()), 5000
 
-
-
   updateTiming: ->
     @thisFrameAt ||= Date.now()/1000 - 1/60
 
@@ -136,10 +121,8 @@ class window.Stage
     @thisFrameAt = Date.now()/1000
     @delta = @thisFrameAt - @lastFrameAt
 
-
   hit: (enemy) ->
     @health -= 10
-    $('#health').html if @health > 0 then @health else 0
     @showHit = yes
 
     if @health is 0
@@ -159,3 +142,9 @@ class window.Stage
     @levelIndex++
     @levelIndex = 0 if @levelIndex >= @levels.length
     @reset()
+
+  Object.defineProperty @::, 'health',
+    get: -> @_health
+    set: (val) ->
+      @_health = if val > 0 then val else 0
+      $('#health').html @_health

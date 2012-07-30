@@ -10,6 +10,10 @@ THREE.Camera::screenToWorld = (type, x, y)->
     xz: @screenToWorld.makePlane('xz')
     yz: @screenToWorld.makePlane('yz')
 
+  # Check the desired world plane exists
+  worldPlane = @screenToWorld.planes[type]
+  throw "World plane type '#{type}' not supported. Try 'xy', 'xz' or 'yz'" unless worldPlane
+
   # Get a "screen" vector
   vector = new THREE.Vector3(
     (x / window.innerWidth) * 2 - 1,

@@ -1,40 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>QuadRipper</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-			
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src="vendor/three.js/Three.js"></script>
-		<script src="vendor/three.js/Detector.js"></script>
-		<script src="vendor/three.js/Stats.js"></script>
-
-		<script src="vendor/threex/THREEx.WindowResize.js"></script>
-		
-
-		<script src="js/accurate_interval.js"></script>
-		<script src="js/threeplus.js"></script>
-		<script src="js/main.js"></script>
-		<script src="js/level.js"></script>
-		<script src="js/stage.js"></script>
-		<script src="js/crosshair.js"></script>
-		<script src="js/gun.js"></script>
-		<script src="js/bullet.js"></script>
-		<script src="js/enemy.js"></script>
-
-		<link  href="css/main.css" rel="stylesheet"/>
-	</head>
-<body>
-	<!-- three.js container -->
-  <div id="container"></div>
-	<!-- info on screen display -->
-	
-	<div id="info">
-		<div class="bottom" id="inlineDoc">
-			<div id="health">100</div>
-			Mouse to Aim &mdash; WASD to Fire<br>
-		</div> 
-	</div>
-</body>
+  <head>
+    <title>QuadRipper</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="vendor/three.js/Three.js"></script>
+    <script src="vendor/three.js/Detector.js"></script>
+    <script src="vendor/three.js/Stats.js"></script>
+    <script src="vendor/threex/THREEx.WindowResize.js"></script>
+    <script src="js/accurate_interval.js"></script>
+    <script src="js/threeplus.js"></script>
+    <script src="js/level.js"></script>
+    <script src="js/levels/1.js"></script>
+    <script src="js/levels/2.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/stage.js"></script>
+    <script src="js/wall.js"></script>
+    <script src="js/crosshair.js"></script>
+    <script src="js/gun.js"></script>
+    <script src="js/bullet.js"></script>
+    <script src="js/enemy.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+  </head>
 </html>
+<body>
+  <div id="container"></div>
+  <div id="info">
+    <div class="top">Mouse to Aim
+      <div id="health">100</div>WASD to Fire
+    </div>
+  </div>
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script></script>
+</body>

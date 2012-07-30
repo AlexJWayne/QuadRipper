@@ -24,24 +24,24 @@ class window.Enemy extends THREE.Mesh
       @material.color = new THREE.Color 0xff0000
 
     switch
-      when @position.x > 100
+      when @position.x >  100 - @size
         scene.stage.hit this
-        @position.x = 100
+        @position.x = 100 - @size
         @velocity.x *= -1
       
-      when @position.x < -100
+      when @position.x < -100 + @size
         scene.stage.hit this
-        @position.x = -100
+        @position.x = -100 + @size
         @velocity.x *= -1
 
-      when @position.y > 100
+      when @position.y >  100 - @size
         scene.stage.hit this
-        @position.y = 100
+        @position.y = 100 - @size
         @velocity.y *= -1
       
-      when @position.y < -100
+      when @position.y < -100 + @size
         scene.stage.hit this
-        @position.y = -100
+        @position.y = -100 + @size
         @velocity.y *= -1
 
   hit: (bullet) ->
